@@ -1,6 +1,7 @@
 package com.example.application.views.list;
 
 import com.example.application.data.entity.Contact;
+import com.example.application.data.service.CrmService;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.grid.Grid;
@@ -17,12 +18,14 @@ import java.util.Collections;
 @PageTitle("Contacts")
 @Route(value = "")
 public class ListView extends VerticalLayout {
+    private final CrmService service;
     Grid<Contact> grid = new Grid<>(Contact.class);
     TextField filterText = new TextField();
 
     ContactForm form;
 
-    public ListView() {
+    public ListView(CrmService service) {
+        this.service = service;
         addClassName("list-view");
         setSizeFull();
 
@@ -33,6 +36,11 @@ public class ListView extends VerticalLayout {
                 getToolbar(),
                 getContent()
         );
+        updateList();
+    }
+
+    private void updateList() {
+        grid.setItems(service.findAllContacts(filterText.getValue()));
     }
 
     private Component getContent() {
@@ -45,7 +53,7 @@ public class ListView extends VerticalLayout {
     }
 
     private void configureForm() {
-        form = new ContactForm(Collections.emptyList(), Collections.emptyList());
+        form = new ContactForm(service.findAllCompanies(), service.findAllStatuses());
         form.setWidth("25em");
     }
 
@@ -53,6 +61,7 @@ public class ListView extends VerticalLayout {
         filterText.setPlaceholder("Filter by name...");
         filterText.setClearButtonVisible(true);
         filterText.setValueChangeMode(ValueChangeMode.LAZY); // to avoid instant search the database when hit a keystroke but wait for little while
+        filterText.addValueChangeListener(e -> updateList());
 
         Button addContactButton = new Button("Add contact");
 
