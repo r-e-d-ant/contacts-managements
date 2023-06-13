@@ -9,7 +9,7 @@ INSERT INTO "COMPANY" VALUES
 (7, 1, 'Avaya Inc.'),
 (8, 1, 'Laboratory Corporation of America Holdings'),
 (9, 1, 'AutoZone, Inc.'),
-(10, 1, 'Linens ''n Things Inc.');   
+(10, 1, 'Linens ''n Things Inc.');
 INSERT INTO "CONTACT" VALUES
 (11, 1, 'eula.lane@jigrormo.ye', 'Eula', 'Lane', 8, 1),
 (12, 1, 'barry.rodriquez@zun.mm', 'Barry', 'Rodriquez', 7, 5),
@@ -35,7 +35,7 @@ INSERT INTO "CONTACT" VALUES
 (32, 1, 'bobby.pearson@ib.kg', 'Bobby', 'Pearson', 9, 1),
 (33, 1, 'larry.ciappi@ba.lk', 'Larry', 'Ciappi', 10, 2),
 (34, 1, 'ronnie.salucci@tohhij.lv', 'Ronnie', 'Salucci', 9, 1),
-(35, 1, 'walter.grossi@tuvo.sa', 'Walter', 'Grossi', 9, 1);      
+(35, 1, 'walter.grossi@tuvo.sa', 'Walter', 'Grossi', 9, 1);
 INSERT INTO "CONTACT" VALUES
 (36, 1, 'frances.koopmans@foga.tw', 'Frances', 'Koopmans', 7, 5),
 (37, 1, 'frances.fujimoto@uswuzzub.jp', 'Frances', 'Fujimoto', 6, 5),
